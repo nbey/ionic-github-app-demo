@@ -24,3 +24,12 @@ page-list {
         color: color($colors, primary)
     }
 }
+
+page-search {
+    a {
+        text-decoration: none;
+    }
+    span {
+        display: block;
+    }
+}
