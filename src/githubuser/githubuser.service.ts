@@ -7,8 +7,8 @@ import {Observable} from 'rxjs';
 export class GithubUserService {
     private usersUrl:string = 'https://api.github.com/users';
 
-    private username:string = null; // nbey
-    private token:string = null; // '2cbd287e9e756802d0ca88fb1a5a7c6d6d2b3460'
+    private username:string = null;
+    private token:string = null;
     private auth:string = null;
 
     private lastId;
