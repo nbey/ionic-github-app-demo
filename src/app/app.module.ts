@@ -9,6 +9,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StoreModule } from '@ngrx/store';;
+import { githubUsersReducer, githubUserReducer } from '../githubuser/githubuser.reducer';
+import { GithubUserService } from '../githubuser/githubuser.service';
+import { EffectsModule } from '@ngrx/effects';
+import { GithubUserEffects } from '../githubuser/githubuser.effects';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+    StoreModule.forRoot(<any>{githubUsersState:githubUsersReducer, githubUserState:githubUserReducer}),
+    EffectsModule.forRoot([GithubUserEffects])
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,6 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    GithubUserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
