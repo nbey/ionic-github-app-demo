@@ -13,6 +13,9 @@ export class TabsPage {
 
     tab1Root = ListPage;
     tab2Root = SearchPage;
+    searchParams = {
+        user: null
+    };
 
     constructor(
         private navParams: NavParams,
@@ -28,4 +31,7 @@ export class TabsPage {
         });
     }
 
+    onTabSelect() {
+        this.searchParams.user = null;
+    }
 }
