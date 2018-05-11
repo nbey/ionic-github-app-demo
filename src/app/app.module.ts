@@ -15,6 +15,8 @@ import { GithubUserService } from '../githubuser/githubuser.service';
 import { EffectsModule } from '@ngrx/effects';
 import { GithubUserEffects } from '../githubuser/githubuser.effects';
 import { HttpModule } from '@angular/http';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowserLinkDirective } from '../directives/in-app-browser-link/in-app-browser-link';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { HttpModule } from '@angular/http';
     ListPage,
     TabsPage,
     SearchPage,
+    InAppBrowserLinkDirective
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
+    InAppBrowser,
     GithubUserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

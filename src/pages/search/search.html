@@ -1,29 +1,29 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>Github User Search</ion-title>
-    </ion-navbar>
-    <ion-searchbar #userSearch (ionInput)="onSearchChange($event)" (keyup.enter)="searchUser(userSearch.value)" (ionClear)="onSearchClear()" [debounce]=1000></ion-searchbar>
-</ion-header>
+        <ion-navbar>
+            <ion-title>Github User Search</ion-title>
+        </ion-navbar>
+        <ion-searchbar #userSearch (ionInput)="onSearchChange($event)" (keyup.enter)="searchUser(userSearch.value)" (ionClear)="onSearchClear()" [debounce]=1000></ion-searchbar>
+    </ion-header>
 
-<ion-content padding>
-    <span
-        *ngIf="loading"
-    >
-        Loading&hellip;
-    </span>
-    <div
-        *ngIf="githubUser"
-    >
-        <ion-card>
-            <img src="{{githubUser.avatar_url}}" />
-            <ion-card-content>
-                <a  target="_blank" href="{{githubUser.html_url}}"><ion-card-title>{{githubUser.login}}</ion-card-title></a>
-                <span>{{githubUser.name}}</span>
-                <span>{{githubUser.company}}</span>
-                <span>{{githubUser.location}}</span>
-                <p>{{githubUser.bio}}</p>
-                <p *ngIf="githubUser.blog"><a  target="_blank" href="{{githubUser.blog}}">Blog</a></p>
-            </ion-card-content>
-        </ion-card>
-    </div>
-</ion-content>
+    <ion-content padding>
+        <span
+            *ngIf="loading"
+        >
+            Loading&hellip;
+        </span>
+        <div
+            *ngIf="githubUser"
+        >
+            <ion-card>
+                <img src="{{githubUser.avatar_url}}" />
+                <ion-card-content>
+                    <a in-app-browser-link target="_blank" href="{{githubUser.html_url}}"><ion-card-title>{{githubUser.login}}</ion-card-title></a>
+                    <span>{{githubUser.name}}</span>
+                    <span>{{githubUser.company}}</span>
+                    <span>{{githubUser.location}}</span>
+                    <p>{{githubUser.bio}}</p>
+                    <p *ngIf="githubUser.blog"><a in-app-browser-link target="_blank" href="{{githubUser.blog}}">Blog</a></p>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </ion-content>
