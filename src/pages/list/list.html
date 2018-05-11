@@ -3,6 +3,27 @@
         <ion-title>Github User List</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content>
-    User List
+
+<ion-content padding>
+    <ion-list
+        [virtualScroll]="items"
+        [approxItemHeight]="'50px'"
+    >
+        <button
+            ion-item
+            *virtualItem="let item"
+            [ngClass]="{ 'red': item.type =='User', blue: item.type=='Organization' }"
+            (click)="itemSelected(item)"
+        >
+            <ion-avatar item-start>
+                <img src="{{item.avatar_url}}">
+            </ion-avatar>
+            {{ item.login }}
+        </button>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
 </ion-content>
