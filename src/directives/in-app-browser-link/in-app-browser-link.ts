@@ -12,14 +12,12 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 })
 export class InAppBrowserLinkDirective {
   @HostListener('click') onLinkClick(evt) {
-      console.log(evt, 'event on click');
       if (evt && evt.preventDefault) {
           evt.preventDefault();
           this.iab.create(evt.target.href, '_self', {location: 'no'});
       }
   }
   constructor(private iab:InAppBrowser) {
-    console.log('Hello InAppBrowserLinkDirective Directive');
   }
 
 }
