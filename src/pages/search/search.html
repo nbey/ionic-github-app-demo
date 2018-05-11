@@ -13,8 +13,9 @@
         </span>
         <div
             *ngIf="githubUser"
+            style="display: flex; justify-content: center;"
         >
-            <ion-card>
+            <ion-card class="card-wrap">
                 <img src="{{githubUser.avatar_url}}" />
                 <ion-card-content>
                     <a in-app-browser-link target="_blank" href="{{githubUser.html_url}}"><ion-card-title>{{githubUser.login}}</ion-card-title></a>
